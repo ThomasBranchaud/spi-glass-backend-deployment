@@ -13,9 +13,9 @@ app.get('/testConnection', (req, res) => {
     res.send('Test connection successful');
 })
 
-app.post('/sendUserInfo', (req, res) => {
-    const {username, info} = req.body;
-    console.log(info);
+app.post('/sendPlayerProfile', (req, res) => {
+    const {username, score} = req.body;
+    console.log(score);
     console.log(username);
     res.send('Received user: ' + username);
 })
