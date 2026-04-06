@@ -21,8 +21,8 @@ app.get('/get-user', (req , res) => {
     }
 
     const fakeDB = {
-        Joe:{username: "Joe", score:100, jobs: [{name: "wailing", step:1}, {name: "disturbance", step:1}] },
-        Jeff:{username:"Jeff", score:200, jobs:[{name: "disturbance", step:2}, {name: "wailing", step:3}]}
+        Joe:{username: "Joe", level:5, xp:1500, completedJobs: 5, failedJobs:1, capturedWraiths:2, capturedSpirits:2, capturedDemons:1, currentJobs: [{name: "wailing", step:1}, {name: "disturbance", step:1}] },
+        Jeff:{username:"Jeff", score:7, xp:2500, completedJobs:17, failedJobs:3, capturedWraiths:7, capturedSpirits: 7, capturedDemons:3, jobs:[{name: "disturbance", step:2}, {name: "wailing", step:3}]}
     };
 
     const player = fakeDB[username];
