@@ -33,9 +33,8 @@ app.get('/get-user', (req , res) => {
 })
 
 app.post('/sendPlayerProfile', (req, res) => {
-    const {username, score} = req.body;
-    console.log(score);
-    console.log(username);
+    const {username, level, xp, completedJobs, failedJobs, capturedWraiths, capturedSpirits, capturedDemons, currentJobs} = req.body;
+    console.log(username + " : " + level + " : " + xp + " : " + completedJobs + " : " + failedJobs + " : " + capturedWraiths + " : " + capturedSpirits + " : " + capturedDemons +  " : " + currentJobs);
     res.send('Received user: ' + username);
 })
 
