@@ -58,9 +58,9 @@ app.get('/get-fake-user', async (req, res) => {
 })
 
 app.post('/sendPlayerProfile', async (req, res) => {
-    const { username, level, xp, completedJobs, failedJobs, capturedWraiths, capturedSpirits, capturedDemons, currentJobs} = req.body;
-    console.log(username + " : " + level + " : " + xp + " : " + completedJobs + " : " + failedJobs + " : " + capturedWraiths + " : " + capturedSpirits + " : " + capturedDemons);
-    console.log(currentJobs[0].id);
+    const { username, level, xp, completedjobs, failedjobs, capturedwraiths, capturedspirits, captureddemons, currentjobs} = req.body;
+    //console.log(username + " : " + level + " : " + xp + " : " + completedJobs + " : " + failedJobs + " : " + capturedWraiths + " : " + capturedSpirits + " : " + capturedDemons);
+    //console.log(currentJobs[0].id);
     res.send('Received user: ' + username);
     try {
         const result = await pool.query(
@@ -77,7 +77,7 @@ app.post('/sendPlayerProfile', async (req, res) => {
             ' capturedSpirits = EXCLUDED.capturedSpirits,' +
             ' capturedDemons = EXCLUDED.capturedDemons, ' +
             ' currentJobs = EXCLUDED.currentJobs',
-            [username, level, xp, completedJobs, failedJobs, capturedWraiths, capturedSpirits, capturedDemons, JSON.stringify(currentJobs)]
+            [username, level, xp, completedjobs, failedjobs, capturedwraiths, capturedspirits, captureddemons, JSON.stringify(currentjobs)]
         );
         res.json({
             success: true,
