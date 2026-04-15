@@ -47,10 +47,10 @@ app.get('/get-fake-user', async (req, res) => {
         {id: 1, currentStep: 2},
         {id: 2, currentStep: 3},
     ]
-    const fakeDB =[
-        {username: "TESTUSER", level: 7, xp: 2500, completedJobs: 10, failedJobs: 4, capturedWraiths: 3, capturedSpirits: 3, capturedDemons: 4, currentJobs: jobs}
-    ]
-    const player = fakeDB[username];
+    const fakeDB = {
+        TESTUSER: {level: 7, xp: 2500, completedJobs: 10, failedJobs: 4, capturedWraiths: 3, capturedSpirits: 3, capturedDemons: 4, currentJobs: jobs}
+    };
+    const player = fakeDB;
     if (!player) {
         res.send("User not found");
     }
