@@ -6,7 +6,7 @@ The majority of the code for this server is contained with the server.js file, w
 
 This server was created using JavaScript and Express and is made to be as easy to expand as possible for future development.
 
-# Localhost Deployment
+# Localhost Testing
 (Should mainly be done for testing)
 
 To deploy on localhost you need to clone this repository onto your computer and open it in your IDE of choice.
