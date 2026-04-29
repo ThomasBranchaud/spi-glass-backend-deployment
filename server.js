@@ -37,26 +37,6 @@ app.get('/get-user', async (req, res) => {
     }
 })
 
-app.get('/get-fake-user', async (req, res) => {
-    const username = req.query.username;
-    if (!username) {
-        console.log('Username not inputted correctly');
-        return res.send('Username not inputted correctly');
-    }
-    const jobs = [
-        {id: 1, currentStep: 2},
-        {id: 2, currentStep: 3},
-    ]
-    const fakeDB =[
-        {username: "TESTUSER", level: 7, xp: 2500, completedJobs: 10, failedJobs: 4, capturedWraiths: 3, capturedSpirits: 3, capturedDemons: 4, currentJobs: jobs}
-    ]
-    const player = fakeDB.find(user => user.username === username);
-    if (!player) {
-        res.send("User not found");
-    }
-    res.json(player);
-})
-
 app.post('/sendPlayerProfile', async (req, res) => {
     const { username, level, xp, completedjobs, failedjobs, capturedwraiths, capturedspirits, captureddemons, currentjobs} = req.body;
     //console.log(username + " : " + level + " : " + xp + " : " + completedJobs + " : " + failedJobs + " : " + capturedWraiths + " : " + capturedSpirits + " : " + capturedDemons);
@@ -92,6 +72,11 @@ app.post('/sendPlayerProfile', async (req, res) => {
     }
 })
 
+app.listen(PORT, () => {
+    console.log('Listening on port ' + PORT);
+})
+
+//FOR TESTING PURPOSES ONLY--------------------------
 app.get('/test-db-connection', async (req, res) => {
     const currentJobs = [
         {id: 6, currentStep: 2},
@@ -128,6 +113,22 @@ app.get('/test-db-connection', async (req, res) => {
 
 });
 
-app.listen(PORT, () => {
-    console.log('Listening on port ' + PORT);
+app.get('/get-fake-user', async (req, res) => {
+    const username = req.query.username;
+    if (!username) {
+        console.log('Username not inputted correctly');
+        return res.send('Username not inputted correctly');
+    }
+    const jobs = [
+        {id: 1, currentStep: 2},
+        {id: 2, currentStep: 3},
+    ]
+    const fakeDB =[
+        {username: "TESTUSER", level: 7, xp: 2500, completedJobs: 10, failedJobs: 4, capturedWraiths: 3, capturedSpirits: 3, capturedDemons: 4, currentJobs: jobs}
+    ]
+    const player = fakeDB.find(user => user.username === username);
+    if (!player) {
+        res.send("User not found");
+    }
+    res.json(player);
 })
